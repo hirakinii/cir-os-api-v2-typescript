@@ -1,0 +1,568 @@
+[
+  {
+    "name": "検索種別",
+    "parameterName": "-",
+    "availableIn": [
+      "all",
+      "projectsAndProducts",
+      "data",
+      "articles",
+      "books",
+      "dissertations",
+      "projects",
+      "researchers"
+    ],
+    "supportsLogic": null,
+    "multipleInput": null,
+    "remarks": ""
+  },
+  {
+    "name": "アプリケーションID",
+    "parameterName": "appid",
+    "availableIn": [
+      "all",
+      "projectsAndProducts",
+      "data",
+      "articles",
+      "books",
+      "dissertations",
+      "projects",
+      "researchers"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "不可",
+    "remarks": "必須です。"
+  },
+  {
+    "name": "レスポンスフォーマット",
+    "parameterName": "format",
+    "availableIn": [
+      "all",
+      "projectsAndProducts",
+      "data",
+      "articles",
+      "books",
+      "dissertations",
+      "projects",
+      "researchers"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "不可",
+    "remarks": "出力フォーマットの指定。html（デフォルト）, rss, atom, json から選択。"
+  },
+  {
+    "name": "検索結果の言語",
+    "parameterName": "lang",
+    "availableIn": [
+      "all",
+      "projectsAndProducts",
+      "data",
+      "articles",
+      "books",
+      "dissertations",
+      "projects",
+      "researchers"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "不可",
+    "remarks": "出力フォーマットの記載言語指定。ja（デフォルト）, en から選択。"
+  },
+  {
+    "name": "出力時のソート順",
+    "parameterName": "sortorder",
+    "availableIn": [
+      "all",
+      "projectsAndProducts",
+      "data",
+      "articles",
+      "books",
+      "dissertations",
+      "projects",
+      "researchers"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "不可",
+    "remarks": "0：出版年等（新しい順）、1：出版年等（古い順）、4：関連度順（デフォルト）、5：人名（五十音順）、6：人名（五十音逆順）、10：被引用件数（多い順/論文のみ）、20/21：関連プロジェクト数（降順/昇順）、30/31：関連成果物数（降順/昇順）、40：CRID昇順（すべて検索のみ）"
+  },
+  {
+    "name": "ページ当たり表示件数",
+    "parameterName": "count",
+    "availableIn": [
+      "all",
+      "projectsAndProducts",
+      "data",
+      "articles",
+      "books",
+      "dissertations",
+      "projects",
+      "researchers"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "不可",
+    "remarks": "デフォルト=20、1〜200の自然数。201以上は200として処理。format=html時は20, 50, 100, 200に切り上げ。"
+  },
+  {
+    "name": "開始年",
+    "parameterName": "from",
+    "availableIn": [
+      "all",
+      "projectsAndProducts",
+      "data",
+      "articles",
+      "books",
+      "dissertations",
+      "projects",
+      "researchers"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "不可",
+    "remarks": "YYYY または YYYYMM 形式で指定。"
+  },
+  {
+    "name": "終了年",
+    "parameterName": "until",
+    "availableIn": [
+      "all",
+      "projectsAndProducts",
+      "data",
+      "articles",
+      "books",
+      "dissertations",
+      "projects",
+      "researchers"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "不可",
+    "remarks": "YYYY または YYYYMM 形式で指定。"
+  },
+  {
+    "name": "研究期間(from)",
+    "parameterName": "projectYearFrom",
+    "availableIn": [
+      "all",
+      "projectsAndProducts",
+      "projects",
+      "researchers"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "不可",
+    "remarks": ""
+  },
+  {
+    "name": "研究期間(until)",
+    "parameterName": "projectYearUntil",
+    "availableIn": [
+      "all",
+      "projectsAndProducts",
+      "projects",
+      "researchers"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "不可",
+    "remarks": ""
+  },
+  {
+    "name": "成果物の出版年(from)",
+    "parameterName": "productYearFrom",
+    "availableIn": [
+      "all",
+      "projectsAndProducts",
+      "data",
+      "articles",
+      "books",
+      "dissertations",
+      "researchers"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "不可",
+    "remarks": ""
+  },
+  {
+    "name": "成果物の出版年(until)",
+    "parameterName": "productYearUntil",
+    "availableIn": [
+      "all",
+      "projectsAndProducts",
+      "data",
+      "articles",
+      "books",
+      "dissertations",
+      "researchers"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "不可",
+    "remarks": ""
+  },
+  {
+    "name": "実データの提供フォーマット",
+    "parameterName": "datasetFormat",
+    "availableIn": [
+      "data"
+    ],
+    "supportsLogic": true,
+    "multipleInput": "OR",
+    "remarks": ""
+  },
+  {
+    "name": "本文あり",
+    "parameterName": "hasLinkToFullText",
+    "availableIn": [
+      "all",
+      "projectsAndProducts",
+      "data",
+      "articles",
+      "books",
+      "dissertations"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "不可",
+    "remarks": "trueまたはfalseを指定して検索します。本文あり検索をしたい場合はtrueを指定してください。"
+  },
+  {
+    "name": "タイトル 研究課題名",
+    "parameterName": "title",
+    "availableIn": [
+      "all",
+      "projectsAndProducts",
+      "data",
+      "articles",
+      "books",
+      "dissertations",
+      "projects",
+      "researchers"
+    ],
+    "supportsLogic": true,
+    "multipleInput": "AND",
+    "remarks": ""
+  },
+  {
+    "name": "タイトル完全一致",
+    "parameterName": "isFullTitle",
+    "availableIn": [
+      "books"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "不可",
+    "remarks": "trueまたはfalseを指定して検索します。タイトル完全一致検索をしたい場合はtrueを指定してください。"
+  },
+  {
+    "name": "著者ID",
+    "parameterName": "researcherId",
+    "availableIn": [
+      "all",
+      "projectsAndProducts",
+      "articles",
+      "books",
+      "projects",
+      "researchers"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "OR",
+    "remarks": ""
+  },
+  {
+    "name": "所属機関",
+    "parameterName": "affiliation",
+    "availableIn": [
+      "all",
+      "projectsAndProducts",
+      "data",
+      "articles",
+      "books",
+      "projects",
+      "researchers"
+    ],
+    "supportsLogic": true,
+    "multipleInput": "AND",
+    "remarks": ""
+  },
+  {
+    "name": "刊行物名",
+    "parameterName": "publicationTitle",
+    "availableIn": [
+      "data",
+      "articles"
+    ],
+    "supportsLogic": true,
+    "multipleInput": "AND",
+    "remarks": ""
+  },
+  {
+    "name": "ISSN",
+    "parameterName": "issn",
+    "availableIn": [
+      "all",
+      "projectsAndProducts",
+      "data",
+      "articles",
+      "books"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "OR",
+    "remarks": ""
+  },
+  {
+    "name": "巻",
+    "parameterName": "volume",
+    "availableIn": [
+      "data",
+      "articles"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "不可",
+    "remarks": ""
+  },
+  {
+    "name": "号",
+    "parameterName": "number",
+    "availableIn": [
+      "data",
+      "articles"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "不可",
+    "remarks": ""
+  },
+  {
+    "name": "ページ",
+    "parameterName": "pages",
+    "availableIn": [
+      "data",
+      "articles"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "不可",
+    "remarks": "pages=x-y と入力されていた場合、'開始ページ=x' OR '終了ページ=y' として検索します。pages=ZZZだった場合、開始ページか終了ページがZZZであるものを検索します。"
+  },
+  {
+    "name": "ISBN",
+    "parameterName": "isbn",
+    "availableIn": [
+      "books",
+      "researchers"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "OR",
+    "remarks": ""
+  },
+  {
+    "name": "NCID",
+    "parameterName": "ncid",
+    "availableIn": [
+      "books"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "OR",
+    "remarks": ""
+  },
+  {
+    "name": "分類",
+    "parameterName": "category",
+    "availableIn": [
+      "books"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "OR",
+    "remarks": ""
+  },
+  {
+    "name": "注記・抄録",
+    "parameterName": "description",
+    "availableIn": [
+      "books",
+      "dissertations"
+    ],
+    "supportsLogic": true,
+    "multipleInput": "AND",
+    "remarks": ""
+  },
+  {
+    "name": "学位授与大学名",
+    "parameterName": "awardInstitution",
+    "availableIn": [
+      "dissertations",
+      "researchers"
+    ],
+    "supportsLogic": true,
+    "multipleInput": "AND",
+    "remarks": ""
+  },
+  {
+    "name": "取得学位",
+    "parameterName": "degree",
+    "availableIn": [
+      "dissertations",
+      "researchers"
+    ],
+    "supportsLogic": true,
+    "multipleInput": "AND",
+    "remarks": ""
+  },
+  {
+    "name": "学位授与年",
+    "parameterName": "awardYear",
+    "availableIn": [
+      "dissertations",
+      "researchers"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "不可",
+    "remarks": "YYYY または YYYYMM 形式で指定。"
+  },
+  {
+    "name": "公開者、出版者",
+    "parameterName": "publisher",
+    "availableIn": [
+      "data",
+      "articles",
+      "books"
+    ],
+    "supportsLogic": true,
+    "multipleInput": "AND",
+    "remarks": ""
+  },
+  {
+    "name": "研究課題/領域番号",
+    "parameterName": "projectId",
+    "availableIn": [
+      "projects",
+      "researchers"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "OR",
+    "remarks": ""
+  },
+  {
+    "name": "DOI",
+    "parameterName": "doi",
+    "availableIn": [
+      "all",
+      "projectsAndProducts",
+      "data",
+      "articles",
+      "dissertations",
+      "researchers"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "OR",
+    "remarks": ""
+  },
+  {
+    "name": "データソース種別",
+    "parameterName": "dataSourceType",
+    "availableIn": [
+      "all",
+      "projectsAndProducts",
+      "data",
+      "articles",
+      "books",
+      "dissertations",
+      "projects",
+      "researchers"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "不可",
+    "remarks": "複数の場合は「,」で区切る。有効な値: JALC, IRDB, CROSSREF, DATACITE, NDL_SEARCH, NDL_DC, RUDA, JDCAT, NINJAL, CIA, CIB, NACSIS_CAT, DBPEDIA, KAKEN, INTEGBIO, PUBMED, LSDB_ARCHIVE, NIPR_ADS, NIPR_SCIENCE_DB, OPENAIRE, PUBLIC_DATA"
+  },
+  {
+    "name": "言語種別",
+    "parameterName": "languageType",
+    "availableIn": [
+      "all",
+      "projectsAndProducts",
+      "data",
+      "articles",
+      "books",
+      "dissertations",
+      "projects"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "OR",
+    "remarks": "ISO-639-1コードで指定。複数の場合は「,」で区切る。例: ja,en,zh"
+  },
+  {
+    "name": "資源種別",
+    "parameterName": "resourceType",
+    "availableIn": [
+      "data",
+      "articles",
+      "books"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "OR",
+    "remarks": "複数の場合は「,」で区切る。有効な値: conference paper, data paper, departmental bulletin paper, editorial, journal article, newspaper, periodical, review article, software paper, article, journal_article, book, Audiovisual, Collection, Dataset, Event, Image, InteractiveResource, Model, PhysicalObject, Service, Software, Sound, Text, Workflow, Other, journal"
+  },
+  {
+    "name": "研究開発事業種別",
+    "parameterName": "rdProgramType",
+    "availableIn": [
+      "all",
+      "projectsAndProducts",
+      "data",
+      "projects"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "OR",
+    "remarks": "複数の場合は「,」で区切る。有効な値: MOONSHOT (ムーンショット型研究開発事業)"
+  },
+  {
+    "name": "研究機関",
+    "parameterName": "institution",
+    "availableIn": [
+      "researchers"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "OR",
+    "remarks": "複数の場合は「,」で区切る。"
+  },
+  {
+    "name": "部局",
+    "parameterName": "department",
+    "availableIn": [
+      "researchers"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "OR",
+    "remarks": "複数の場合は「,」で区切る。"
+  },
+  {
+    "name": "職名",
+    "parameterName": "jobTitle",
+    "availableIn": [
+      "researchers"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "OR",
+    "remarks": "複数の場合は「,」で区切る。"
+  },
+  {
+    "name": "研究成果数",
+    "parameterName": "numberOfResearchProducts",
+    "availableIn": [
+      "researchers"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "OR",
+    "remarks": "複数の場合は「,」で区切る。有効な値: lt10, gte10lt50, gte50lt100, gte100lt200, gte200lt500, gte500"
+  },
+  {
+    "name": "研究課題数",
+    "parameterName": "numberOfResearchProjects",
+    "availableIn": [
+      "researchers"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "OR",
+    "remarks": "複数の場合は「,」で区切る。有効な値: lt10, gte10lt30, gte30lt50, gte50lt100, gte100"
+  },
+  {
+    "name": "キーワード",
+    "parameterName": "keyword",
+    "availableIn": [
+      "researchers"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "OR",
+    "remarks": "複数の場合は「,」で区切る。"
+  }
+]
