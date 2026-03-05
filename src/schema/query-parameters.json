@@ -138,12 +138,7 @@
   {
     "name": "研究期間(from)",
     "parameterName": "projectYearFrom",
-    "availableIn": [
-      "all",
-      "projectsAndProducts",
-      "projects",
-      "researchers"
-    ],
+    "availableIn": ["all", "projectsAndProducts", "projects", "researchers"],
     "supportsLogic": false,
     "multipleInput": "不可",
     "remarks": ""
@@ -151,12 +146,7 @@
   {
     "name": "研究期間(until)",
     "parameterName": "projectYearUntil",
-    "availableIn": [
-      "all",
-      "projectsAndProducts",
-      "projects",
-      "researchers"
-    ],
+    "availableIn": ["all", "projectsAndProducts", "projects", "researchers"],
     "supportsLogic": false,
     "multipleInput": "不可",
     "remarks": ""
@@ -196,9 +186,7 @@
   {
     "name": "実データの提供フォーマット",
     "parameterName": "datasetFormat",
-    "availableIn": [
-      "data"
-    ],
+    "availableIn": ["data"],
     "supportsLogic": true,
     "multipleInput": "OR",
     "remarks": ""
@@ -206,14 +194,7 @@
   {
     "name": "本文あり",
     "parameterName": "hasLinkToFullText",
-    "availableIn": [
-      "all",
-      "projectsAndProducts",
-      "data",
-      "articles",
-      "books",
-      "dissertations"
-    ],
+    "availableIn": ["all", "projectsAndProducts", "data", "articles", "books", "dissertations"],
     "supportsLogic": false,
     "multipleInput": "不可",
     "remarks": "trueまたはfalseを指定して検索します。本文あり検索をしたい場合はtrueを指定してください。"
@@ -238,9 +219,7 @@
   {
     "name": "タイトル完全一致",
     "parameterName": "isFullTitle",
-    "availableIn": [
-      "books"
-    ],
+    "availableIn": ["books"],
     "supportsLogic": false,
     "multipleInput": "不可",
     "remarks": "trueまたはfalseを指定して検索します。タイトル完全一致検索をしたい場合はtrueを指定してください。"
@@ -248,14 +227,7 @@
   {
     "name": "著者ID",
     "parameterName": "researcherId",
-    "availableIn": [
-      "all",
-      "projectsAndProducts",
-      "articles",
-      "books",
-      "projects",
-      "researchers"
-    ],
+    "availableIn": ["all", "projectsAndProducts", "articles", "books", "projects", "researchers"],
     "supportsLogic": false,
     "multipleInput": "OR",
     "remarks": ""
@@ -279,10 +251,7 @@
   {
     "name": "刊行物名",
     "parameterName": "publicationTitle",
-    "availableIn": [
-      "data",
-      "articles"
-    ],
+    "availableIn": ["data", "articles"],
     "supportsLogic": true,
     "multipleInput": "AND",
     "remarks": ""
@@ -290,13 +259,7 @@
   {
     "name": "ISSN",
     "parameterName": "issn",
-    "availableIn": [
-      "all",
-      "projectsAndProducts",
-      "data",
-      "articles",
-      "books"
-    ],
+    "availableIn": ["all", "projectsAndProducts", "data", "articles", "books"],
     "supportsLogic": false,
     "multipleInput": "OR",
     "remarks": ""
@@ -304,10 +267,7 @@
   {
     "name": "巻",
     "parameterName": "volume",
-    "availableIn": [
-      "data",
-      "articles"
-    ],
+    "availableIn": ["data", "articles"],
     "supportsLogic": false,
     "multipleInput": "不可",
     "remarks": ""
@@ -315,10 +275,7 @@
   {
     "name": "号",
     "parameterName": "number",
-    "availableIn": [
-      "data",
-      "articles"
-    ],
+    "availableIn": ["data", "articles"],
     "supportsLogic": false,
     "multipleInput": "不可",
     "remarks": ""
@@ -326,10 +283,7 @@
   {
     "name": "ページ",
     "parameterName": "pages",
-    "availableIn": [
-      "data",
-      "articles"
-    ],
+    "availableIn": ["data", "articles"],
     "supportsLogic": false,
     "multipleInput": "不可",
     "remarks": "pages=x-y と入力されていた場合、'開始ページ=x' OR '終了ページ=y' として検索します。pages=ZZZだった場合、開始ページか終了ページがZZZであるものを検索します。"
@@ -337,10 +291,7 @@
   {
     "name": "ISBN",
     "parameterName": "isbn",
-    "availableIn": [
-      "books",
-      "researchers"
-    ],
+    "availableIn": ["books", "researchers"],
     "supportsLogic": false,
     "multipleInput": "OR",
     "remarks": ""
@@ -348,9 +299,7 @@
   {
     "name": "NCID",
     "parameterName": "ncid",
-    "availableIn": [
-      "books"
-    ],
+    "availableIn": ["books"],
     "supportsLogic": false,
     "multipleInput": "OR",
     "remarks": ""
@@ -358,9 +307,7 @@
   {
     "name": "分類",
     "parameterName": "category",
-    "availableIn": [
-      "books"
-    ],
+    "availableIn": ["books"],
     "supportsLogic": false,
     "multipleInput": "OR",
     "remarks": ""
@@ -368,10 +315,7 @@
   {
     "name": "注記・抄録",
     "parameterName": "description",
-    "availableIn": [
-      "books",
-      "dissertations"
-    ],
+    "availableIn": ["books", "dissertations"],
     "supportsLogic": true,
     "multipleInput": "AND",
     "remarks": ""
@@ -379,10 +323,7 @@
   {
     "name": "学位授与大学名",
     "parameterName": "awardInstitution",
-    "availableIn": [
-      "dissertations",
-      "researchers"
-    ],
+    "availableIn": ["dissertations", "researchers"],
     "supportsLogic": true,
     "multipleInput": "AND",
     "remarks": ""
@@ -390,10 +331,7 @@
   {
     "name": "取得学位",
     "parameterName": "degree",
-    "availableIn": [
-      "dissertations",
-      "researchers"
-    ],
+    "availableIn": ["dissertations", "researchers"],
     "supportsLogic": true,
     "multipleInput": "AND",
     "remarks": ""
@@ -401,10 +339,7 @@
   {
     "name": "学位授与年",
     "parameterName": "awardYear",
-    "availableIn": [
-      "dissertations",
-      "researchers"
-    ],
+    "availableIn": ["dissertations", "researchers"],
     "supportsLogic": false,
     "multipleInput": "不可",
     "remarks": "YYYY または YYYYMM 形式で指定。"
@@ -412,11 +347,7 @@
   {
     "name": "公開者、出版者",
     "parameterName": "publisher",
-    "availableIn": [
-      "data",
-      "articles",
-      "books"
-    ],
+    "availableIn": ["data", "articles", "books"],
     "supportsLogic": true,
     "multipleInput": "AND",
     "remarks": ""
@@ -424,10 +355,7 @@
   {
     "name": "研究課題/領域番号",
     "parameterName": "projectId",
-    "availableIn": [
-      "projects",
-      "researchers"
-    ],
+    "availableIn": ["projects", "researchers"],
     "supportsLogic": false,
     "multipleInput": "OR",
     "remarks": ""
@@ -483,11 +411,7 @@
   {
     "name": "資源種別",
     "parameterName": "resourceType",
-    "availableIn": [
-      "data",
-      "articles",
-      "books"
-    ],
+    "availableIn": ["data", "articles", "books"],
     "supportsLogic": false,
     "multipleInput": "OR",
     "remarks": "複数の場合は「,」で区切る。有効な値: conference paper, data paper, departmental bulletin paper, editorial, journal article, newspaper, periodical, review article, software paper, article, journal_article, book, Audiovisual, Collection, Dataset, Event, Image, InteractiveResource, Model, PhysicalObject, Service, Software, Sound, Text, Workflow, Other, journal"
@@ -495,12 +419,7 @@
   {
     "name": "研究開発事業種別",
     "parameterName": "rdProgramType",
-    "availableIn": [
-      "all",
-      "projectsAndProducts",
-      "data",
-      "projects"
-    ],
+    "availableIn": ["all", "projectsAndProducts", "data", "projects"],
     "supportsLogic": false,
     "multipleInput": "OR",
     "remarks": "複数の場合は「,」で区切る。有効な値: MOONSHOT (ムーンショット型研究開発事業)"
@@ -508,9 +427,7 @@
   {
     "name": "研究機関",
     "parameterName": "institution",
-    "availableIn": [
-      "researchers"
-    ],
+    "availableIn": ["researchers"],
     "supportsLogic": false,
     "multipleInput": "OR",
     "remarks": "複数の場合は「,」で区切る。"
@@ -518,9 +435,7 @@
   {
     "name": "部局",
     "parameterName": "department",
-    "availableIn": [
-      "researchers"
-    ],
+    "availableIn": ["researchers"],
     "supportsLogic": false,
     "multipleInput": "OR",
     "remarks": "複数の場合は「,」で区切る。"
@@ -528,9 +443,7 @@
   {
     "name": "職名",
     "parameterName": "jobTitle",
-    "availableIn": [
-      "researchers"
-    ],
+    "availableIn": ["researchers"],
     "supportsLogic": false,
     "multipleInput": "OR",
     "remarks": "複数の場合は「,」で区切る。"
@@ -538,9 +451,7 @@
   {
     "name": "研究成果数",
     "parameterName": "numberOfResearchProducts",
-    "availableIn": [
-      "researchers"
-    ],
+    "availableIn": ["researchers"],
     "supportsLogic": false,
     "multipleInput": "OR",
     "remarks": "複数の場合は「,」で区切る。有効な値: lt10, gte10lt50, gte50lt100, gte100lt200, gte200lt500, gte500"
@@ -548,9 +459,7 @@
   {
     "name": "研究課題数",
     "parameterName": "numberOfResearchProjects",
-    "availableIn": [
-      "researchers"
-    ],
+    "availableIn": ["researchers"],
     "supportsLogic": false,
     "multipleInput": "OR",
     "remarks": "複数の場合は「,」で区切る。有効な値: lt10, gte10lt30, gte30lt50, gte50lt100, gte100"
@@ -558,9 +467,7 @@
   {
     "name": "キーワード",
     "parameterName": "keyword",
-    "availableIn": [
-      "researchers"
-    ],
+    "availableIn": ["researchers"],
     "supportsLogic": false,
     "multipleInput": "OR",
     "remarks": "複数の場合は「,」で区切る。"

@@ -1,273 +1,253 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "CiNii Research API Root Response",
-    "type": "object",
-    "required": [
-        "@context",
-        "@id",
-        "@type",
-        "title",
-        "description",
-        "link",
-        "dc:date",
-        "opensearch:totalResults",
-        "items"
-    ],
-    "properties": {
-        "@context": {
-            "type": "object",
-            "required": [
-                "@vocab",
-                "rdf",
-                "rdfs",
-                "dc",
-                "prism",
-                "ndl",
-                "opensearch",
-                "cir"
-            ],
-            "properties": {
-                "@vocab": {
-                    "type": "string",
-                    "const": "http://purl.org/rss/1.0/"
-                },
-                "rdf": {
-                    "type": "string",
-                    "const": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-                },
-                "rdfs": {
-                    "type": "string",
-                    "const": "http://www.w3.org/2000/01/rdf-schema#"
-                },
-                "dc": {
-                    "type": "string",
-                    "const": "http://purl.org/dc/elements/1.1/"
-                },
-                "prism": {
-                    "type": "string",
-                    "const": "http://prismstandard.org/namespaces/basic/2.0/"
-                },
-                "ndl": {
-                    "type": "string",
-                    "const": "http://ndl.go.jp/dcndl/terms"
-                },
-                "opensearch": {
-                    "type": "string",
-                    "const": "http://a9.com/-/spec/opensearch/1.1/"
-                },
-                "cir": {
-                    "type": "string",
-                    "const": "https://cir.nii.ac.jp/schema/1.0/"
-                },
-                "@language": {
-                    "type": "string",
-                    "default": "ja"
-                }
-            }
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CiNii Research API Root Response",
+  "type": "object",
+  "required": [
+    "@context",
+    "@id",
+    "@type",
+    "title",
+    "description",
+    "link",
+    "dc:date",
+    "opensearch:totalResults",
+    "items"
+  ],
+  "properties": {
+    "@context": {
+      "type": "object",
+      "required": ["@vocab", "rdf", "rdfs", "dc", "prism", "ndl", "opensearch", "cir"],
+      "properties": {
+        "@vocab": {
+          "type": "string",
+          "const": "http://purl.org/rss/1.0/"
         },
-        "@id": {
-            "type": "string",
-            "description": "この検索リクエストのURI。クエリをURLエンコードし、「変数名=値」形式で出力。パラメータからappidは取り除かれる。"
+        "rdf": {
+          "type": "string",
+          "const": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
         },
-        "@type": {
-            "type": "string",
-            "const": "channel",
-            "description": "固定値: channel"
+        "rdfs": {
+          "type": "string",
+          "const": "http://www.w3.org/2000/01/rdf-schema#"
         },
-        "title": {
-            "type": "string",
-            "description": "CiNii Research <データ種別> - <クエリ>。<クエリ>は、パラメータにないものは表示しない。"
+        "dc": {
+          "type": "string",
+          "const": "http://purl.org/dc/elements/1.1/"
         },
-        "description": {
-            "type": "string",
-            "description": "titleと同じ内容"
+        "prism": {
+          "type": "string",
+          "const": "http://prismstandard.org/namespaces/basic/2.0/"
         },
-        "link": {
-            "type": "object",
-            "required": [
-                "@id"
-            ],
-            "properties": {
-                "@id": {
-                    "type": "string",
-                    "description": "リクエストされたURI。クエリをURLエンコードし、「変数名=値」形式で出力。パラメータからappidは取り除かれる"
-                }
-            }
+        "ndl": {
+          "type": "string",
+          "const": "http://ndl.go.jp/dcndl/terms"
         },
-        "dc:date": {
-            "type": "string",
-            "format": "date-time",
-            "description": "検索が行われた日時 (W3CDTF表記)"
+        "opensearch": {
+          "type": "string",
+          "const": "http://a9.com/-/spec/opensearch/1.1/"
         },
-        "opensearch:totalResults": {
-            "type": "string",
-            "pattern": "^[0-9]+$",
-            "description": "検索結果総数"
+        "cir": {
+          "type": "string",
+          "const": "https://cir.nii.ac.jp/schema/1.0/"
         },
-        "opensearch:startIndex": {
-            "type": "string",
-            "description": "開始番号。検索結果のうち、何件目のデータから記述しているかを表示する。"
-        },
-        "opensearch:itemsPerPage": {
-            "type": "string",
-            "description": "レスポンスに含まれる件数"
-        },
-        "items": {
-            "type": "array",
-            "minItems": 1,
-            "items": {
-                "type": "object",
-                "required": [
-                    "dc:creator",
-                    "dc:type"
-                ],
-                "properties": {
-                    "@id": {
-                        "type": "string",
-                        "description": "詳細ページのURI"
-                    },
-                    "@type": {
-                        "type": "string"
-                    },
-                    "title": {
-                        "type": "string",
-                        "description": "著者名まはたタイトル"
-                    },
-                    "link": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string",
-                                "description": "詳細ページのURI"
-                            }
-                        }
-                    },
-                    "rdfs:seeAlso": {
-                        "type": "object",
-                        "properties": {
-                            "@id": {
-                                "type": "string",
-                                "description": "JSON-LDのURIを表示(ただしappidのパラメータは除く）"
-                            }
-                        }
-                    },
-                    "dc:creator": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "著者名"
-                    },
-                    "dc:publisher": {
-                        "type": "string",
-                        "description": "出版者。博士論文の場合、学位授与機関名。"
-                    },
-                    "dc:type": {
-                        "type": "string",
-                        "description": "データ種別"
-                    },
-                    "prism:publicationName": {
-                        "type": "string",
-                        "description": "刊行物名"
-                    },
-                    "prism:issn": {
-                        "type": "string",
-                        "description": "ISSN"
-                    },
-                    "prism:volume": {
-                        "type": "string",
-                        "description": "巻"
-                    },
-                    "prism:number": {
-                        "type": "string",
-                        "description": "号"
-                    },
-                    "prism:startingPage": {
-                        "type": "string",
-                        "description": "開始ページ"
-                    },
-                    "prism:endingPage": {
-                        "type": "string",
-                        "description": "終了ページ"
-                    },
-                    "prism:pageRange": {
-                        "type": "string",
-                        "description": "ページ"
-                    },
-                    "prism:publicationDate": {
-                        "type": "string",
-                        "description": "出版年月日（W3CDTF表記）"
-                    },
-                    "description": {
-                        "type": "string",
-                        "description": "抄録"
-                    },
-                    "abstractLicenseFlag": {
-                        "type": "string",
-                        "description": "抄録ライセンスフラグ",
-                        "enum": [
-                            "allow",
-                            "disallow"
-                        ]
-                    },
-                    "dc:identifier": {
-                        "type": "array",
-                        "description": "識別子",
-                        "items": {
-                            "type": "object",
-                            "required": [
-                                "@type",
-                                "@value"
-                            ],
-                            "properties": {
-                                "@type": {
-                                    "type": "string",
-                                    "description": "識別子のタイプ"
-                                },
-                                "@value": {
-                                    "type": "string",
-                                    "description": "識別子のコード値"
-                                }
-                            }
-                        }
-                    },
-                    "dc:subject": {
-                        "type": "array",
-                        "description": "キーワード",
-                        "items": {
-                            "type": "string"
-                        }
-                    },
-                    "ndl:degreeName": {
-                        "type": "string",
-                        "description": "取得学位名"
-                    },
-                    "ndl:dissertationNumber": {
-                        "type": "string",
-                        "description": "学位授与番号"
-                    },
-                    "dc:date": {
-                        "type": "string",
-                        "description": "出版年月日（W3CDTF表記）"
-                    },
-                    "dc:source": {
-                        "type": "array",
-                        "items": {
-                            "type": "object",
-                            "properties": {
-                                "@id": {
-                                    "type": "string",
-                                    "description": "本文公開ページのURL"
-                                },
-                                "dc:title": {
-                                    "type": "string",
-                                    "description": "データソースの名称"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+        "@language": {
+          "type": "string",
+          "default": "ja"
         }
+      }
+    },
+    "@id": {
+      "type": "string",
+      "description": "この検索リクエストのURI。クエリをURLエンコードし、「変数名=値」形式で出力。パラメータからappidは取り除かれる。"
+    },
+    "@type": {
+      "type": "string",
+      "const": "channel",
+      "description": "固定値: channel"
+    },
+    "title": {
+      "type": "string",
+      "description": "CiNii Research <データ種別> - <クエリ>。<クエリ>は、パラメータにないものは表示しない。"
+    },
+    "description": {
+      "type": "string",
+      "description": "titleと同じ内容"
+    },
+    "link": {
+      "type": "object",
+      "required": ["@id"],
+      "properties": {
+        "@id": {
+          "type": "string",
+          "description": "リクエストされたURI。クエリをURLエンコードし、「変数名=値」形式で出力。パラメータからappidは取り除かれる"
+        }
+      }
+    },
+    "dc:date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "検索が行われた日時 (W3CDTF表記)"
+    },
+    "opensearch:totalResults": {
+      "type": "string",
+      "pattern": "^[0-9]+$",
+      "description": "検索結果総数"
+    },
+    "opensearch:startIndex": {
+      "type": "string",
+      "description": "開始番号。検索結果のうち、何件目のデータから記述しているかを表示する。"
+    },
+    "opensearch:itemsPerPage": {
+      "type": "string",
+      "description": "レスポンスに含まれる件数"
+    },
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["dc:creator", "dc:type"],
+        "properties": {
+          "@id": {
+            "type": "string",
+            "description": "詳細ページのURI"
+          },
+          "@type": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string",
+            "description": "著者名まはたタイトル"
+          },
+          "link": {
+            "type": "object",
+            "properties": {
+              "@id": {
+                "type": "string",
+                "description": "詳細ページのURI"
+              }
+            }
+          },
+          "rdfs:seeAlso": {
+            "type": "object",
+            "properties": {
+              "@id": {
+                "type": "string",
+                "description": "JSON-LDのURIを表示(ただしappidのパラメータは除く）"
+              }
+            }
+          },
+          "dc:creator": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "著者名"
+          },
+          "dc:publisher": {
+            "type": "string",
+            "description": "出版者。博士論文の場合、学位授与機関名。"
+          },
+          "dc:type": {
+            "type": "string",
+            "description": "データ種別"
+          },
+          "prism:publicationName": {
+            "type": "string",
+            "description": "刊行物名"
+          },
+          "prism:issn": {
+            "type": "string",
+            "description": "ISSN"
+          },
+          "prism:volume": {
+            "type": "string",
+            "description": "巻"
+          },
+          "prism:number": {
+            "type": "string",
+            "description": "号"
+          },
+          "prism:startingPage": {
+            "type": "string",
+            "description": "開始ページ"
+          },
+          "prism:endingPage": {
+            "type": "string",
+            "description": "終了ページ"
+          },
+          "prism:pageRange": {
+            "type": "string",
+            "description": "ページ"
+          },
+          "prism:publicationDate": {
+            "type": "string",
+            "description": "出版年月日（W3CDTF表記）"
+          },
+          "description": {
+            "type": "string",
+            "description": "抄録"
+          },
+          "abstractLicenseFlag": {
+            "type": "string",
+            "description": "抄録ライセンスフラグ",
+            "enum": ["allow", "disallow"]
+          },
+          "dc:identifier": {
+            "type": "array",
+            "description": "識別子",
+            "items": {
+              "type": "object",
+              "required": ["@type", "@value"],
+              "properties": {
+                "@type": {
+                  "type": "string",
+                  "description": "識別子のタイプ"
+                },
+                "@value": {
+                  "type": "string",
+                  "description": "識別子のコード値"
+                }
+              }
+            }
+          },
+          "dc:subject": {
+            "type": "array",
+            "description": "キーワード",
+            "items": {
+              "type": "string"
+            }
+          },
+          "ndl:degreeName": {
+            "type": "string",
+            "description": "取得学位名"
+          },
+          "ndl:dissertationNumber": {
+            "type": "string",
+            "description": "学位授与番号"
+          },
+          "dc:date": {
+            "type": "string",
+            "description": "出版年月日（W3CDTF表記）"
+          },
+          "dc:source": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "@id": {
+                  "type": "string",
+                  "description": "本文公開ページのURL"
+                },
+                "dc:title": {
+                  "type": "string",
+                  "description": "データソースの名称"
+                }
+              }
+            }
+          }
+        }
+      }
     }
+  }
 }

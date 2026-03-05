@@ -1,0 +1,30 @@
+{
+  "name": "cinii-research-opensearch-api-client",
+  "version": "0.0.1",
+  "description": "CiNii Research OpenSearch API Client for TypeScript",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "format": "prettier 'src/**/*.{ts,json}' --write",
+    "lint": "eslint 'src/**/*.ts' --fix",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bug": {
+    "url": ""
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0"
+  },
+  "dependencies": {}
+}
