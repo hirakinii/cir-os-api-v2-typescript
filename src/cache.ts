@@ -2,13 +2,24 @@ import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { generateCacheKey } from './utils.js';
 
+/**
+ * Manages file-system based caching for API responses.
+ */
 export class CacheManager {
   private cacheDir: string;
 
+  /**
+   * Initializes the CacheManager with a specific directory.
+   *
+   * @param cacheDir - The path to the directory where cache files will be stored.
+   */
   constructor(cacheDir: string) {
     this.cacheDir = cacheDir;
   }
 
+  /**
+   * Ensures the cache directory exists, creating it if necessary.
+   */
   private async ensureCacheDir(): Promise<void> {
     try {
       await fs.mkdir(this.cacheDir, { recursive: true });
@@ -18,10 +29,23 @@ export class CacheManager {
     }
   }
 
+  /**
+   * Constructs the file path for a given cache key.
+   *
+   * @param key - The cache key.
+   * @returns The full path to the cache file.
+   */
   private getCacheFilePath(key: string): string {
     return path.join(this.cacheDir, `${key}.json`);
   }
 
+  /**
+   * Retrieves cached data for a specific URL, if it exists.
+   *
+   * @template T The expected type of the cached data.
+   * @param url - The URL used to generate the cache key.
+   * @returns The cached data, or null if the cache does not exist or cannot be read.
+   */
   public async get<T>(url: string): Promise<T | null> {
     const key = generateCacheKey(url);
     const filePath = this.getCacheFilePath(key);
@@ -37,6 +61,13 @@ export class CacheManager {
     }
   }
 
+  /**
+   * Saves data to the cache for a specific URL.
+   *
+   * @template T The type of the data being cached.
+   * @param url - The URL used to generate the cache key.
+   * @param data - The data to cache.
+   */
   public async set<T>(url: string, data: T): Promise<void> {
     await this.ensureCacheDir();
     const key = generateCacheKey(url);
@@ -49,6 +80,9 @@ export class CacheManager {
     }
   }
 
+  /**
+   * Clears all cached files within the configured cache directory.
+   */
   public async clear(): Promise<void> {
     try {
       const files = await fs.readdir(this.cacheDir);

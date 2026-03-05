@@ -1,3 +1,7 @@
+/**
+ * Represents the root response from the CiNii Research API.
+ * @template T The type of items included in the response.
+ */
 export interface CiniiApiResponse<T = CiniiItem> {
   '@context': Record<string, unknown>;
   '@id': string;
@@ -12,6 +16,9 @@ export interface CiniiApiResponse<T = CiniiItem> {
   items: T[];
 }
 
+/**
+ * Represents a single search result item.
+ */
 export interface CiniiItem {
   '@id'?: string;
   '@type'?: string;
@@ -39,14 +46,25 @@ export interface CiniiItem {
   'dc:source'?: Array<{ '@id'?: string; 'dc:title'?: string }>;
 }
 
+/**
+ * Configuration options for the CiniiApiClient.
+ */
 export interface CiniiApiClientOptions {
+  /** The application ID for the CiNii API. */
   appId: string;
+  /** Timeout for API requests in milliseconds. */
   timeout?: number;
+  /** Maximum number of retries for failed network requests. */
   maxRetries?: number;
+  /** Whether to use response caching. Defaults to true. */
   useCache?: boolean;
+  /** Custom directory for storing cache files. */
   cacheDir?: string;
 }
 
+/**
+ * Search parameters available across the CiNii Research API endpoints.
+ */
 export interface CiniiSearchParams {
   appid?: string;
   format?: 'json' | 'html' | 'rss' | 'atom';
@@ -63,8 +81,8 @@ export interface CiniiSearchParams {
   hasLinkToFullText?: boolean;
   title?: string;
   isFullTitle?: boolean;
-  creator?: string; // 著者ID (researcherId)
-  researcherId?: string; // 著者ID
+  creator?: string; // Researcher ID
+  researcherId?: string; // Researcher ID
   affiliation?: string;
   publicationTitle?: string;
   issn?: string;
@@ -91,6 +109,6 @@ export interface CiniiSearchParams {
   numberOfResearchProducts?: string;
   numberOfResearchProjects?: string;
   keyword?: string;
-  // その他のパラメータ用インデックスシグネチャ
+  // Index signature for any other additional or undocumented parameters
   [key: string]: string | number | boolean | undefined;
 }

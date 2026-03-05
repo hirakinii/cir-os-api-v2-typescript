@@ -13,18 +13,35 @@ import {
   ResearchersApi,
 } from './api/index.js';
 
+/**
+ * The main client for interacting with the CiNii Research OpenSearch API.
+ * Provides access to various endpoints such as articles, books, researchers, etc.
+ */
 export class CiniiApiClient {
   private cacheManager: CacheManager | null = null;
 
+  /** Access to the "all" search endpoint. */
   public readonly all: AllApi;
+  /** Access to the "projectsAndProducts" search endpoint. */
   public readonly projectsAndProducts: ProjectsAndProductsApi;
+  /** Access to the "data" search endpoint. */
   public readonly data: DataApi;
+  /** Access to the "articles" search endpoint. */
   public readonly articles: ArticlesApi;
+  /** Access to the "books" search endpoint. */
   public readonly books: BooksApi;
+  /** Access to the "dissertations" search endpoint. */
   public readonly dissertations: DissertationsApi;
+  /** Access to the "projects" search endpoint. */
   public readonly projects: ProjectsApi;
+  /** Access to the "researchers" search endpoint. */
   public readonly researchers: ResearchersApi;
 
+  /**
+   * Initializes the CiNii API Client.
+   *
+   * @param options - Configuration options including the mandatory appId.
+   */
   constructor(options: CiniiApiClientOptions) {
     const useCache = options.useCache ?? true;
 
@@ -50,6 +67,9 @@ export class CiniiApiClient {
     this.researchers = new ResearchersApi(appId, timeout, maxRetries, this.cacheManager);
   }
 
+  /**
+   * Clears the API response cache entirely.
+   */
   public async clearCache(): Promise<void> {
     if (this.cacheManager) {
       await this.cacheManager.clear();

@@ -6,8 +6,8 @@
   "types": "dist/index.d.ts",
   "type": "module",
   "scripts": {
-    "format": "prettier 'src/**/*.{ts,json}' --write",
-    "lint": "eslint 'src/**/*.ts' --fix",
+    "format": "prettier '{src,examples}/**/*.{ts,json}' --write",
+    "lint": "eslint '{src,examples}/**/*.ts' --fix",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "build": "tsc"
