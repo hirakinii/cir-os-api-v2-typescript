@@ -1,6 +1,6 @@
 import { ENDPOINTS, DEFAULTS } from '../constants.js';
 import { CiniiApiRequestError, CiniiApiResponseError } from '../exceptions.js';
-import type { CiniiApiResponse, CiniiSearchParams } from '../models/index.js';
+import type { CiniiApiResponse, CiniiSearchParams, CiniiItem } from '../models/index.js';
 import type { CacheManager } from '../cache.js';
 import { buildQueryString } from '../utils.js';
 
@@ -74,7 +74,7 @@ export abstract class BaseApi {
    * @returns A promise that resolves to the typed API response.
    * @throws {CiniiApiResponseError} If the response data cannot be parsed.
    */
-  public async search<T>(params: CiniiSearchParams): Promise<CiniiApiResponse<T>> {
+  public async search<T = CiniiItem>(params: CiniiSearchParams): Promise<CiniiApiResponse<T>> {
     const fullParams: CiniiSearchParams = {
       appid: this.appId,
       format: DEFAULTS.FORMAT,

@@ -25,7 +25,7 @@ describe('utils', () => {
       const params: CiniiSearchParams = {
         appid: 'test',
         count: undefined,
-        lang: '',
+        title: '',
         format: 'json',
       };
       const queryString = buildQueryString(params);

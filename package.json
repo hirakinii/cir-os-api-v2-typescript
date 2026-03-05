@@ -10,7 +10,8 @@
     "lint": "eslint '{src,examples}/**/*.ts' --fix",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "build": "tsc"
+    "build": "tsc -p tsconfig.build.json",
+    "prepublishOnly": "npm run format && npm run lint && npm run typecheck && npm run build && npm run test"
   },
   "author": "",
   "license": "Apache-2.0",
