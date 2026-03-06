@@ -1,10 +1,19 @@
 {
   "name": "cinii-research-opensearch-api-client",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "CiNii Research OpenSearch API Client for TypeScript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "format": "prettier '{src,examples}/**/*.{ts,json}' --write",
     "lint": "eslint '{src,examples}/**/*.ts' --fix",
@@ -13,11 +22,16 @@
     "build": "tsc -p tsconfig.build.json",
     "prepublishOnly": "npm run format && npm run lint && npm run typecheck && npm run build && npm run test"
   },
-  "author": "",
+  "author": "hirakinii",
   "license": "Apache-2.0",
-  "bug": {
-    "url": ""
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hirakinii/cir-os-api-v2-typescript.git"
   },
+  "bugs": {
+    "url": "https://github.com/hirakinii/cir-os-api-v2-typescript/issues"
+  },
+  "homepage": "https://github.com/hirakinii/cir-os-api-v2-typescript#readme",
   "devDependencies": {
     "@types/node": "^20.0.0",
     "@typescript-eslint/eslint-plugin": "^8.56.1",
