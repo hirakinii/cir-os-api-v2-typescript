@@ -69,8 +69,12 @@ export interface CiniiSearchParams {
   appid?: string;
   format?: 'json' | 'html' | 'rss' | 'atom';
   lang?: 'ja' | 'en';
-  count?: number;
   sortorder?: number;
+  count?: number;
+  start?: string;
+  q?: string;
+  creator?: string;
+  name?: string;
   from?: string;
   until?: string;
   projectYearFrom?: string;
@@ -81,7 +85,6 @@ export interface CiniiSearchParams {
   hasLinkToFullText?: boolean;
   title?: string;
   isFullTitle?: boolean;
-  creator?: string; // Researcher ID
   researcherId?: string; // Researcher ID
   affiliation?: string;
   publicationTitle?: string;

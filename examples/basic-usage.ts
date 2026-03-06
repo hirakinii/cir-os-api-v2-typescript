@@ -13,7 +13,35 @@ async function main() {
   });
 
   try {
-    console.log('=== 論文 (Articles) の検索 ===');
+    console.log('=== 全カテゴリ (all) の検索 ===');
+    // 例: 「機械学習」に関する論文を検索、5件取得
+    const allResults = await client.all.search({
+      title: '機械学習',
+      count: 5,
+    });
+
+    console.log(`ヒット件数: ${allResults['opensearch:totalResults']} 件`);
+    allResults.items.forEach((item, index) => {
+      console.log(`[${index + 1}] ${item.title}`);
+      console.log(`    著者: ${item['dc:creator']?.join(', ') || '不明'}`);
+      console.log(`    URI: ${item['@id']}`);
+    });
+
+    console.log('=== 課題・成果 (projectsAndProducts) の検索 ===');
+    // 例: 「機械学習」に関する論文を検索、5件取得
+    const projectsAndProducts = await client.projectsAndProducts.search({
+      title: '機械学習',
+      count: 5,
+    });
+
+    console.log(`ヒット件数: ${projectsAndProducts['opensearch:totalResults']} 件`);
+    projectsAndProducts.items.forEach((item, index) => {
+      console.log(`[${index + 1}] ${item.title}`);
+      console.log(`    著者: ${item['dc:creator']?.join(', ') || '不明'}`);
+      console.log(`    URI: ${item['@id']}`);
+    });
+
+    console.log('\n=== 論文 (Articles) の検索 ===');
     // 例: 「機械学習」に関する論文を検索、5件取得
     const articlesResponse = await client.articles.search({
       title: '機械学習',
@@ -30,7 +58,7 @@ async function main() {
     console.log('\n=== 研究者 (Researchers) の検索 ===');
     // 例: 特定のキーワードに関連する研究者を検索
     const researchersResponse = await client.researchers.search({
-      keyword: '自然言語処理',
+      name: '甲斐',
       count: 3,
     });
 

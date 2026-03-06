@@ -102,6 +102,56 @@
     "remarks": "デフォルト=20、1〜200の自然数。201以上は200として処理。format=html時は20, 50, 100, 200に切り上げ。"
   },
   {
+    "name": "検索結果一覧の開始番号",
+    "parameterName": "start",
+    "availableIn": [
+      "all",
+      "projectsAndProducts",
+      "data",
+      "articles",
+      "books",
+      "dissertations",
+      "projects",
+      "researchers"
+    ],
+    "supportsLogic": false,
+    "multipleInput": "不可",
+    "remarks": "自然数\nそれ以外は、デフォルト=1\nformat=htmlの場合、画面のページ数に換算\nstart ÷ (1ページあたりの表示件数)\nあまりがある場合 + 1\n最大値は10000"
+  },
+  {
+    "name": "フリーワード",
+    "parameterName": "q",
+    "availableIn": [
+      "all",
+      "projectsAndProducts",
+      "data",
+      "articles",
+      "books",
+      "dissertations",
+      "projects",
+      "researchers"
+    ],
+    "supportsLogic": true,
+    "multipleInput": "AND",
+    "remarks": ""
+  },
+  {
+    "name": "人物名（creator）",
+    "parameterName": "creator",
+    "availableIn": ["all"],
+    "supportsLogic": false,
+    "multipleInput": "AND",
+    "remarks": ""
+  },
+  {
+    "name": "人物名（name）",
+    "parameterName": "name",
+    "availableIn": ["researchers"],
+    "supportsLogic": true,
+    "multipleInput": "AND",
+    "remarks": ""
+  },
+  {
     "name": "開始年",
     "parameterName": "from",
     "availableIn": [
