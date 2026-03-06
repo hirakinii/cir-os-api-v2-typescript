@@ -6,11 +6,12 @@
   "types": "dist/index.d.ts",
   "type": "module",
   "scripts": {
-    "format": "prettier 'src/**/*.{ts,json}' --write",
-    "lint": "eslint 'src/**/*.ts' --fix",
+    "format": "prettier '{src,examples}/**/*.{ts,json}' --write",
+    "lint": "eslint '{src,examples}/**/*.ts' --fix",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "build": "tsc"
+    "build": "tsc -p tsconfig.build.json",
+    "prepublishOnly": "npm run format && npm run lint && npm run typecheck && npm run build && npm run test"
   },
   "author": "",
   "license": "Apache-2.0",
@@ -19,12 +20,11 @@
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
-    "@typescript-eslint/eslint-plugin": "^7.0.0",
-    "@typescript-eslint/parser": "^7.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.56.1",
+    "@typescript-eslint/parser": "^8.56.1",
     "eslint": "^8.57.0",
     "prettier": "^3.0.0",
     "typescript": "^5.0.0",
     "vitest": "^1.0.0"
-  },
-  "dependencies": {}
+  }
 }
